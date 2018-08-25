@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include "include/prime.h"
 
 using namespace std;
 
@@ -12,9 +13,16 @@ int main(int argc, char const *argv[])
     number = GetInputNumber("Enter the number : ");
 
     //Calculation
-    
-
-    //cout << "Largest prime smaller than " << number << " is " <<  << endl;
+    unsigned int largestPrimeSmaller = 0;
+    for(unsigned int i=2;i<number;i++)
+    {
+        if (prime::isPrime(i))
+            largestPrimeSmaller = i;
+    }
+    if (largestPrimeSmaller==0)
+        cout << "There's no prime number smaller than " << number << endl;
+    else
+        cout << "Largest prime smaller than " << number << " is " << largestPrimeSmaller << endl;
     cout << "Press any key to continue... " << endl;
     getch();
     return 0;
